@@ -3,8 +3,8 @@ import requests
 # endpoints = "https://httpbin.org/"
 # endpoints = "https://httpbin.org/anything"
 endpoints = "http://localhost:5000/api/"
-get_response = requests.get(
-    endpoints, params={"title": "django rest framework"}, json={"page": "anything"}
+get_response = requests.post(
+    endpoints, json={"title": "Django Rest Framework", "price": "ab123"}
 )
 # print(get_response.text)
 print(get_response.json())
