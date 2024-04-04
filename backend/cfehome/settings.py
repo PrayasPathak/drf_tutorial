@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "api.apps.ApiConfig",
     "products.apps.ProductsConfig",
+    "search.apps.SearchConfig",
     "rest_framework",
     "rest_framework.authtoken",
 ]
@@ -135,4 +136,6 @@ REST_FRAMEWORK = {
     "DEFAULT_PERMISSION_CLASSES": [
         "rest_framework.permissions.IsAuthenticatedOrReadOnly",
     ],
+    "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.LimitOffsetPagination",
+    "PAGE_SIZE": 5,
 }

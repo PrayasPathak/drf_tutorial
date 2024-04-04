@@ -11,13 +11,9 @@ class ProductInlineSerializer(serializers.Serializer):
 
 
 class ProductSerializer(serializers.ModelSerializer):
-    my_discount = serializers.SerializerMethodField(read_only=True)
     user = UserPublicSerializer(read_only=True)
     url = serializers.HyperlinkedIdentityField(
         view_name="product-detail", lookup_field="pk", read_only=True
-    )
-    related_products = ProductInlineSerializer(
-        source="user.product_set.all", many=True, read_only=True
     )
 
     class Meta:
@@ -30,8 +26,7 @@ class ProductSerializer(serializers.ModelSerializer):
             "content",
             "price",
             "sale_price",
-            "my_discount",
-            "related_products",
+            "public",
         ]
 
     def get_my_discount(self, obj):
